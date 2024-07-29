@@ -12,15 +12,19 @@ var arr = [2,3,4,5,6,7,8,9,10];
 var turn = document.querySelector("#turn");
 
 
+// Scores
+var score1 = document.querySelector("#s1");
+var score2 = document.querySelector("#s2");
+var p1score = 0;
+var p2score = 0;
+
+
 // Start Game Logic 
 var btn = document.querySelector("button");
 btn.addEventListener('click', ()=>{
     turn.textContent = "Player 1 Turn";
     player = 0;
-    matchDecision = -1;
     btn.disabled = true;
-    arr = [2,3,4,5,6,7,8,9,10];
-    console.log(arr);
 })
 
 
@@ -113,6 +117,16 @@ function check() {
 }
 
 
+// Function for updating scores
+function updateScore() {
+    if(matchDecision == 0) p1score++;
+    if(matchDecision == 1) p2score++;
+    matchDecision = -1;
+    player = -1;
+    arr = [2,3,4,5,6,7,8,9,10];
+}
+
+
 // Displaying Match Decision Logic
 setInterval(()=>{
 
@@ -123,16 +137,20 @@ setInterval(()=>{
 
     if(matchDecision == 0) {
         turn.textContent = "!! Player 1 Wins !!";
+        updateScore();
     }
     
     if(matchDecision == 1) {
         turn.textContent = "!! Player 2 Wins !!";
+        updateScore();
     }
     
     if(matchDecision == 2) {
         turn.textContent = "!! Match Draw !!";
     }
 
+    score1.textContent = p1score;
+    score2.textContent = p2score;
     
 }, 100);
 
