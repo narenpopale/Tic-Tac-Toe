@@ -35,7 +35,6 @@ var box = document.querySelectorAll(".box");
 for (let index = 0; index < box.length; index++) {
     const element = box[index];
     element.addEventListener('click', () => {
-        // console.log();
 
         if (btn.disabled == false) {
             window.alert("Please Start the Game!");
@@ -55,9 +54,7 @@ for (let index = 0; index < box.length; index++) {
         }
 
         check();
-        if (matchDecision != 1 || matchDecision != 0) isDraw();
-
-        console.log(matchDecision);
+        if (matchDecision == -1) isDraw();
     })
 }
 
@@ -130,11 +127,11 @@ setInterval(() => {
         turn.textContent = "!! Player 2 Wins !!";
         updateScore();
     }
-    
+
     if (matchDecision == 2) {
         turn.textContent = "!! Match Draw !!";
     }
-    
+
     if (matchDecision != -1) {
         btn.disabled = false;
         reset();
@@ -143,7 +140,7 @@ setInterval(() => {
 
     score1.textContent = p1score;
     score2.textContent = p2score;
-    
+
 }, 100);
 
 
