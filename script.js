@@ -9,7 +9,6 @@ var player = -1;
 // 2 means Draw
 var matchDecision = -1;
 var arr = [2,3,4,5,6,7,8,9,10];
-var nums = [2,3,4,5,6,7,8,9,10];
 var turn = document.querySelector("#turn");
 
 
@@ -20,7 +19,7 @@ btn.addEventListener('click', ()=>{
     player = 0;
     matchDecision = -1;
     btn.disabled = true;
-    arr = nums;
+    arr = [2,3,4,5,6,7,8,9,10];
     console.log(arr);
 })
 
